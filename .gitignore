@@ -1,0 +1,33 @@
+## .NET MAUI / .NET build artifacts
+bin/
+obj/
+*.user
+.vs/
+.idea/
+*.suo
+*.userprefs
+
+## NuGet
+packages/
+*.nupkg
+.nuget/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Android
+*.apk
+*.aab
+*.keystore
+
+## iOS
+*.ipa
+*.dSYM
+*.xcarchive
+
+## Rider
+.idea/
+
+## Visual Studio Code
+.vscode/
