@@ -1,7 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0-android;net10.0-ios</TargetFrameworks>
+<TargetFrameworks>
+  net9.0-android;
+  net9.0-ios
+</TargetFrameworks>
     <RootNamespace>HomeHub</RootNamespace>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
@@ -38,6 +41,7 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Maui" Version="10.*" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.5" />
   </ItemGroup>
 
 </Project>
