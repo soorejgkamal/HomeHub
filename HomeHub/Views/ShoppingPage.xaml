@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:HomeHub.ViewModels"
+    xmlns:models="clr-namespace:HomeHub.Models"
+    x:Class="HomeHub.Views.ShoppingPage"
+    x:DataType="vm:ShoppingViewModel"
+    Title="Shopping"
+    BackgroundColor="{StaticResource PageBackground}">
+
+    <CollectionView
+        ItemsSource="{Binding ShoppingItems}"
+        Margin="0,8,0,0">
+
+        <CollectionView.Header>
+            <Label
+                Text="Shopping List"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Secondary}"
+                Margin="20,16,20,4" />
+        </CollectionView.Header>
+
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="4" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:ShoppingItem">
+                <Border Style="{StaticResource CardBorderStyle}" Margin="20,4">
+                    <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
+
+                        <Label
+                            Grid.Column="0"
+                            Text="{Binding Name}"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Secondary}"
+                            VerticalOptions="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsChecked}" Value="True">
+                                    <Setter Property="TextDecorations" Value="Strikethrough" />
+                                    <Setter Property="TextColor" Value="{StaticResource Gray400}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Border
+                            Grid.Column="1"
+                            BackgroundColor="{StaticResource Gray100}"
+                            StrokeThickness="0"
+                            Padding="10,4"
+                            VerticalOptions="Center"
+                            StrokeShape="RoundRectangle 8">
+                            <Label
+                                Text="{Binding Quantity, StringFormat='×{0}'}"
+                                FontSize="13"
+                                TextColor="{StaticResource Gray600}" />
+                        </Border>
+
+                        <CheckBox
+                            Grid.Column="2"
+                            IsChecked="{Binding IsChecked}"
+                            Color="{StaticResource Primary}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+        <CollectionView.EmptyView>
+            <Label
+                Text="Shopping list is empty."
+                FontSize="16"
+                TextColor="{StaticResource Gray400}"
+                HorizontalOptions="Center"
+                Margin="0,40,0,0" />
+        </CollectionView.EmptyView>
+
+    </CollectionView>
+
+</ContentPage>

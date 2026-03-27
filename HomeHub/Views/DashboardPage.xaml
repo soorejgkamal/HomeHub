@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:HomeHub.ViewModels"
+    x:Class="HomeHub.Views.DashboardPage"
+    x:DataType="vm:DashboardViewModel"
+    Title="Dashboard"
+    BackgroundColor="{StaticResource PageBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4" Margin="0,8,0,8">
+                <Label
+                    Text="HomeHub"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Primary}" />
+                <Label
+                    Text="Your household at a glance"
+                    FontSize="14"
+                    TextColor="{StaticResource Gray500}" />
+            </VerticalStackLayout>
+
+            <!-- Pending Tasks Card -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border
+                        Grid.Column="0"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeThickness="0"
+                        WidthRequest="56"
+                        HeightRequest="56"
+                        StrokeShape="RoundRectangle 14">
+                        <Label
+                            Text="✓"
+                            FontSize="26"
+                            TextColor="{StaticResource Primary}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label
+                            Text="Pending Tasks"
+                            FontSize="13"
+                            TextColor="{StaticResource Gray500}" />
+                        <Label
+                            Text="{Binding TotalPendingTasks}"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Secondary}" />
+                        <Label
+                            Text="tasks remaining"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray400}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Upcoming Bills Card -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border
+                        Grid.Column="0"
+                        BackgroundColor="#FEF9C3"
+                        StrokeThickness="0"
+                        WidthRequest="56"
+                        HeightRequest="56"
+                        StrokeShape="RoundRectangle 14">
+                        <Label
+                            Text="💳"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label
+                            Text="Upcoming Bills"
+                            FontSize="13"
+                            TextColor="{StaticResource Gray500}" />
+                        <Label
+                            Text="{Binding UpcomingBills}"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Secondary}" />
+                        <Label
+                            Text="bills unpaid"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray400}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Shopping Items Card -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border
+                        Grid.Column="0"
+                        BackgroundColor="#DCFCE7"
+                        StrokeThickness="0"
+                        WidthRequest="56"
+                        HeightRequest="56"
+                        StrokeShape="RoundRectangle 14">
+                        <Label
+                            Text="🛒"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label
+                            Text="Shopping List"
+                            FontSize="13"
+                            TextColor="{StaticResource Gray500}" />
+                        <Label
+                            Text="{Binding ShoppingItems}"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Secondary}" />
+                        <Label
+                            Text="items to buy"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray400}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
